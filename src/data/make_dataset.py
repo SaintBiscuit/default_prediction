@@ -83,4 +83,7 @@ def load_and_split_data(data_path: str) -> bool:
     else:
         print("Неверный путь к файлу UCI_Credit_Card.csv, или его не существует по заданному пути.")
         return False
-    
+
+
+if __name__ == '__main__':
+    load_and_split_data('data/raw/UCI_Credit_Card.csv')

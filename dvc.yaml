@@ -1,0 +1,29 @@
+stages:
+  prepare:
+    cmd: python -m src.data.make_dataset
+    deps:
+      - src/data/make_dataset.py
+      - data/raw/UCI_Credit_Card.csv
+    outs:
+      - data/processed/x_train.csv
+      - data/processed/y_train.csv
+      - data/processed/x_test.csv
+      - data/processed/y_test.csv
+
+  train:
+    cmd: python -m src.models.train_pipeline
+    deps: 
+      - src/models/train_pipeline.py
+      - data/processed/x_train.csv
+      - data/processed/y_train.csv
+      - data/processed/x_test.csv
+      - data/processed/y_test.csv
+    outs:
+      - models/LogisticRegression_credit_default_model.pkl
+      - models/GradientBoostingClassifier_credit_default_model.pkl
+      - models/RandomForestClassifier_credit_default_model.pkl
+      - grapsh/LogisticRegression_roc_curve.png
+      - grapsh/GradientBoostingClassifier_roc_curve.png
+      - grapsh/RandomForestClassifier_roc_curve.png
+    metrics:
+      - artifacts/metrics.json
