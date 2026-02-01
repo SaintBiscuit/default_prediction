@@ -1,0 +1,30 @@
+schema: '2.0'
+stages:
+  prepare:
+    cmd: python -m src.data.make_dataset
+    deps:
+    - path: data/raw/UCI_Credit_Card.csv
+      hash: md5
+      md5: 940b416bb13a9b24bb5c9e1589284005
+      size: 2862995
+    - path: src/data/make_dataset.py
+      hash: md5
+      md5: 957d5a343ea4eac13f09d99807a88442
+      size: 4025
+    outs:
+    - path: data/processed/x_test.csv
+      hash: md5
+      md5: 47e6e05e92a5896720031bf3ec2d12dc
+      size: 690335
+    - path: data/processed/x_train.csv
+      hash: md5
+      md5: 2e2a7dc0a222e96796581acf746062e9
+      size: 2758138
+    - path: data/processed/y_test.csv
+      hash: md5
+      md5: 0812946a1c801837e2fcb83fb894c924
+      size: 18028
+    - path: data/processed/y_train.csv
+      hash: md5
+      md5: 2bccd2d3d7b692b21bcdddb08d9089e5
+      size: 72028

@@ -219,4 +219,3 @@ data/processed
 *.db
 mlruns/0/models
 src/models/*.pkl
-dvc.lock
