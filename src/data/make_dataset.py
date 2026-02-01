@@ -6,7 +6,6 @@ import sys
 import great_expectations as ge
 from .great_expectations_validation import create_expectation_suite
 
-DATA_PATH = 'data/raw/UCI_Credit_Card.csv'
 TARGET_COLUMN = 'default.payment.next.month'
 
 
@@ -70,8 +69,14 @@ def load_and_split_data(data_path: str) -> bool:
         print('='*50)
         print('Создаем тренировочную и тестовую выборки')
         train, test = train_test_split(credit_card_df, test_size=0.2, random_state=42)
-        train.to_csv("data/processed/train.csv", index=False)
-        test.to_csv("data/processed/test.csv", index=False)
+        X_train = train.drop('default.payment.next.month', axis=1)
+        Y_train = train['default.payment.next.month']
+        X_test = test.drop('default.payment.next.month', axis=1)
+        Y_test = test['default.payment.next.month']
+        X_train.to_csv("data/processed/x_train.csv", index=False)
+        Y_train.to_csv("data/processed/y_train.csv", index=False)
+        X_test.to_csv("data/processed/x_test.csv", index=False)
+        Y_test.to_csv("data/processed/y_test.csv", index=False)
         print('Тестовая и тренировочная выборки созданы')
         print('='*50, end='\n\n')
         return True
