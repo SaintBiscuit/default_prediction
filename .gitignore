@@ -219,3 +219,4 @@ data/processed
 *.db
 mlruns/0/models
 src/models/*.pkl
+metrics.json
