@@ -217,6 +217,6 @@ __marimo__/
 
 data/processed
 *.db
-mlruns/0/models
+mlruns/
 src/models/*.pkl
 metrics.json
