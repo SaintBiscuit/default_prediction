@@ -22,8 +22,8 @@ stages:
       - models/LogisticRegression_credit_default_model.pkl
       - models/GradientBoostingClassifier_credit_default_model.pkl
       - models/RandomForestClassifier_credit_default_model.pkl
-      - grapsh/LogisticRegression_roc_curve.png
-      - grapsh/GradientBoostingClassifier_roc_curve.png
-      - grapsh/RandomForestClassifier_roc_curve.png
+      - graphs/LogisticRegression_roc_curve.png
+      - graphs/GradientBoostingClassifier_roc_curve.png
+      - graphs/RandomForestClassifier_roc_curve.png
     metrics:
-      - artifacts/metrics.json
+      - metrics.json

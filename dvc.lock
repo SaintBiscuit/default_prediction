@@ -28,3 +28,55 @@ stages:
       hash: md5
       md5: 2bccd2d3d7b692b21bcdddb08d9089e5
       size: 72028
+  train:
+    cmd: python -m src.models.train_pipeline
+    deps:
+    - path: data/processed/x_test.csv
+      hash: md5
+      md5: 47e6e05e92a5896720031bf3ec2d12dc
+      size: 690335
+    - path: data/processed/x_train.csv
+      hash: md5
+      md5: 2e2a7dc0a222e96796581acf746062e9
+      size: 2758138
+    - path: data/processed/y_test.csv
+      hash: md5
+      md5: 0812946a1c801837e2fcb83fb894c924
+      size: 18028
+    - path: data/processed/y_train.csv
+      hash: md5
+      md5: 2bccd2d3d7b692b21bcdddb08d9089e5
+      size: 72028
+    - path: src/models/train_pipeline.py
+      hash: md5
+      md5: b87cb4c0d8ad305a8beafac32d95e72b
+      size: 2705
+    outs:
+    - path: graphs/GradientBoostingClassifier_roc_curve.png
+      hash: md5
+      md5: 6252f5e3af9ff55d53dea2f42dd11c77
+      size: 33243
+    - path: graphs/LogisticRegression_roc_curve.png
+      hash: md5
+      md5: c0f849381c9e1877ae0402a71d62c88f
+      size: 33325
+    - path: graphs/RandomForestClassifier_roc_curve.png
+      hash: md5
+      md5: e5f58bb410b0de150c15691ec85695c2
+      size: 33453
+    - path: metrics.json
+      hash: md5
+      md5: efd86fe5c1153eddcfc60c29dbc58ece
+      size: 675
+    - path: models/GradientBoostingClassifier_credit_default_model.pkl
+      hash: md5
+      md5: b0e08065d0105aa7a80b10d142429d89
+      size: 265037
+    - path: models/LogisticRegression_credit_default_model.pkl
+      hash: md5
+      md5: e775cfb743619bb13e9ef43598139767
+      size: 4906
+    - path: models/RandomForestClassifier_credit_default_model.pkl
+      hash: md5
+      md5: f1472776e28ffe8bfc8ac469f0803de8
+      size: 150618267
