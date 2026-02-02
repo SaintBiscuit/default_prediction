@@ -9,21 +9,6 @@ from .great_expectations_validation import create_expectation_suite
 TARGET_COLUMN = "default.payment.next.month"
 
 
-def gx_validate_data():
-    validator = ge.from_pandas(pandas_df=credit_card_df, expectation_suite=suite)
-
-    results = validator.validate()
-    for result in results.results:
-        if not result.success:
-            print("=" * 25)
-            print("Ошибка проверки данных")
-            print(
-                f'Тип проверки: {result["expectation_config"]["expectation_type"]}'
-            )
-            print(f'Колонка: {result["expectation_config"]["kwargs"]["column"]}')
-            print(f"Нарушено: {result.result}")
-
-
 def basic_clean_data(target_df: pd.DataFrame, data_path: str) -> pd.DataFrame:
 
     target_df = target_df.copy()

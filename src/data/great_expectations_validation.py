@@ -4,7 +4,6 @@ from great_expectations.core import ExpectationConfiguration
 import json
 import os
 
-
 SUITE_NAME = "credit_card_data_suite"
 
 
@@ -147,14 +146,15 @@ def suite_to_file() -> ExpectationSuite:
     suite = create_expectation_suite()
     context = ge.get_context()
     context.save_expectation_suite(suite, SUITE_NAME)
-    
+
     suite_dir = "gx/expectations"
     os.makedirs(suite_dir, exist_ok=True)
-    
+
     with open(f"{suite_dir}/{SUITE_NAME}.json", "w") as file:
         json.dump(suite.to_json_dict(), file, indent=2)
-    
+
     print(f"Suite сохранён: {suite_dir}/{SUITE_NAME}.json")
     return suite
+
 
 suite_to_file()
