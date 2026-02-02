@@ -7,7 +7,7 @@ from src.data.make_dataset import load_and_split_data
 from src.models.train_pipeline import train_pipeline
 
 
-def convert_to_onxx(model_path:str = None):
+def convert_to_onxx(model_path: str = None):
     if model_path is None:
         if not os.path.exists("models/RandomForestClassifier_credit_default_model.pkl"):
             load_and_split_data("data/raw/UCI_Credit_Card.csv")

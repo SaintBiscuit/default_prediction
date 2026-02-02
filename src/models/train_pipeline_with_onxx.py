@@ -18,7 +18,7 @@ def train_pipeline_with_onxx(model_name):
     metrics, model_path = train_pipeline(model_name)
     convert_to_onxx(model_path=model_path)
 
-    
+
 if __name__ == "__main__":
-    train_pipeline_with_onxx('RandomForestClassifier')
+    train_pipeline_with_onxx("RandomForestClassifier")
     quantization_model()
