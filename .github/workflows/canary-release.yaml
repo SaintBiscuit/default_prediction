@@ -1,0 +1,18 @@
+name: Canary Release
+
+on:
+  workflow_dispatch
+
+jobs:
+  canary:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Canary deploy
+        env:
+          KUBECONFIG: ${{ secrets.KUBECONFIG }}
+        run: |
+          kubectl apply -f deployment/manifests/canary-deployment.yaml --kubeconfig $KUBECONFIG

@@ -230,3 +230,6 @@ terraform.tfstate.backup
 terraform.tfvars
 *.tfvars
 *.tfvars.json
+
+kubeconfig.yaml
+kubeconfig.yml
