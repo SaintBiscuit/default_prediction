@@ -1,0 +1,24 @@
+name: Deploy to Staging
+
+on:
+  workflow_run:
+    workflows: ["Build and Test"]
+    types: [completed]
+
+jobs:
+  deploy:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up kubectl
+        uses: azure/setup-kubectl@v4
+
+      - name: Deploy to staging
+        env:
+          KUBECONFIG: ${{ secrets.KUBECONFIG_STAGING }}
+        run: |
+          kubectl apply -f deployment/manifests/ --kubeconfig $KUBECONFIG

@@ -18,3 +18,4 @@ dvc
 great-expectations==0.18.12
 numpy
 pydantic
+evidently

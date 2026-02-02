@@ -9,6 +9,7 @@ from .pipeline import get_best_pipeline
 from datetime import datetime
 import pandas as pd
 import json
+from onxx_transformation.convert_to_onxx import convert_to_onxx
 
 
 def train_pipeline(model_name: str):
@@ -65,6 +66,11 @@ def train_pipeline(model_name: str):
             f.write(json.dumps(model_metrics) + "\n")
 
     return model_log["metrics"], model_path
+
+
+def train_pipeline_with_onxx(model_name):
+    metrics, model_path = train_pipeline(model_name)
+    convert_to_onxx(model_path=model_path)
 
 
 if __name__ == "__main__":
