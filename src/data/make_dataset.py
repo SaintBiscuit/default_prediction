@@ -78,6 +78,7 @@ def load_and_split_data(data_path: str) -> bool:
         Y_train = train["default.payment.next.month"]
         X_test = test.drop("default.payment.next.month", axis=1)
         Y_test = test["default.payment.next.month"]
+        os.mkdir('data/processed', exist_ok=True)
         X_train.to_csv("data/processed/x_train.csv", index=False)
         Y_train.to_csv("data/processed/y_train.csv", index=False)
         X_test.to_csv("data/processed/x_test.csv", index=False)
